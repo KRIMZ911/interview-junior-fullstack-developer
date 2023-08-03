@@ -1,12 +1,19 @@
 <div class="container-fluid">
-  <h1>City Search</h1>
+  <h1><a href="/" style="text-decoration: none;">City Search</a></h1>
   <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">City</label>
-      <input type="text" required class="form-control" id="exampleFormControlInput1" name="search-bar" [(ngModel)]="userModel.item" />
+      <input type="text" required class="form-control" id="exampleFormControlInput1" name="search-bar" [(ngModel)]="userModel.cityName" />
     </div>
     <div>
       <button class="btn btn-primary" type="submit">Submit</button>
     </div>
   </form>
+  <div *ngIf="submitted">
+    <h3>Search Results:</h3>
+    <ul>
+      <li *ngFor="let city of searchData">{{ city.cityName }} - Count: {{ city.count }}</li>
+    </ul>
+    <button class="btn btn-primary" type="submit" onclick="window.location.href ='/'">Go Back</button>
+  </div>
 </div>
