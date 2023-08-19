@@ -1,0 +1,15 @@
+<div>
+    <h2>City Search</h2>
+    <form (ngSubmit)="onSearch()">
+      <label for="searchQuery">Enter a city name:</label>
+      <input type="text" id="searchQuery" [(ngModel)]="searchQuery" name="searchQuery" required>
+      <button type="submit">Search</button>
+    </form>
+    <div *ngIf="searchResults.length > 0">
+      <h3>Search Results:</h3>
+      <ul>
+        <li *ngFor="let city of searchResults">{{ city.name }}</li>
+      </ul>
+    </div>
+  </div>
+  
